@@ -7,7 +7,7 @@
     "test": "test",
     "dev": "webpack-dev-server ",
     "build-lib": "webpack --config ddl.config.js",
-    "build": "webpack -w"
+    "build": "webpack --config prod.js --optimize-minimize"
   },
   "repository": {
     "type": "git",
