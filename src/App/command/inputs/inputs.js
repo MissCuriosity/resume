@@ -9,7 +9,6 @@ class Inputs extends Component {
         super(props)
     }
     render() {
-        console.log(this.props.keyinput.finalinput)
         return (
             <div className='inputs'>
                 <span>{this.props.keyinput.finalinput}</span>

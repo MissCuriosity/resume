@@ -8,8 +8,8 @@ class Command extends Component {
     render() {
         return (
             <div className='command'>
-                <span>Zertu@<a href="http://zertu.space">zertu.space</a>
-                </span>:~ $
+                <span className='user'>Zertu@<a href="http://zertu.space">zertu.space</a>
+                </span>:~ $ &nbsp;
                 <Inputs keyinput={keyinput}/>
             </div>
         );
