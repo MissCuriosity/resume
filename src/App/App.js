@@ -5,10 +5,11 @@ import app from './App.scss'
 
 class App extends Component {
     render() {
+        const time=new Date()
         return (
             <div className='app'>
                 Welcome back!<br />
-                Last Login: Wed Mar 01 2017 12:52:36 GMT+0800 (中国标准时间) on ttys000
+                Last Login: {time.toString()} on {navigator.platform}
                 <Command />
             </div>
         );

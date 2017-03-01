@@ -13,10 +13,32 @@
             }
         }
     }
-    span {
+    .command {
         font-family: LucidaSans;
         border: none;
         font-size: 16px;
         color: #e0e0e0;
+        background: #454545;
+        position: relative;
+        display: inline-block;
+    }
+    .blink {
+        font-family: LucidaSans;
+        border: none;
+        font-size: 16px;
+        color: #e0e0e0;
+        background: #454545;
+        position: relative;
+        display: inline-block;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -3px;
+            background: #e0e0e0;
+            width: 2px;
+            top: 0;
+            bottom: 0;
+        }
     }
 }
