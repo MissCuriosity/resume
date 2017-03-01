@@ -5,7 +5,6 @@ import Inputs from '../App/command/inputs/inputs';
 class keyinput {
     constructor() {
         window.addEventListener('keydown', e => {
-            console.log(e.keyCode)
             let banarr = [19,45,36,33,34,35,46,17,18,17,18,91,37,39]
             for(let i=0;i<banarr.length;i++){
                 if(e.keyCode==banarr[i]){
