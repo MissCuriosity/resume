@@ -1,13 +1,29 @@
 import {computed, observable} from 'mobx'
 
 import Inputs from '../App/command/inputs/inputs';
+import handleInput from '../Handler/Handler'
 
 class keyinput {
     constructor() {
         window.addEventListener('keydown', e => {
-            let banarr = [19,45,36,33,34,35,46,17,18,17,18,91,37,39]
-            for(let i=0;i<banarr.length;i++){
-                if(e.keyCode==banarr[i]){
+            let banarr = [
+                19,
+                45,
+                36,
+                33,
+                34,
+                35,
+                46,
+                17,
+                18,
+                17,
+                18,
+                91,
+                37,
+                39
+            ]
+            for (let i = 0; i < banarr.length; i++) {
+                if (e.keyCode == banarr[i]) {
                     return
                 }
             }
@@ -39,7 +55,8 @@ class keyinput {
                     .inputkeys
                     .push(e.key)
             } else {
-                this.i++ 
+                this.lists[this.i].reply = handleInput(this.lists[this.i].inputkeys.join('').trim())
+                this.i++;
                 this
                     .lists
                     .push({key: this.i, inputkeys: []})
@@ -51,7 +68,8 @@ class keyinput {
     @observable lists = [
         {
             key: this.i,
-            inputkeys: this.inputkeys
+            inputkeys: this.inputkeys,
+            reply: ''
         }
     ]
 }

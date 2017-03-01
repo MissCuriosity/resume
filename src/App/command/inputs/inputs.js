@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+import input from '../../../Data/input';
 import inputs from './inputs.scss'
 import {observer} from "mobx-react"
 
@@ -7,6 +8,9 @@ import {observer} from "mobx-react"
 class Inputs extends Component {
     constructor(props) {
         super(props)
+    }
+    handleChange(e){
+        console.log(e)
     }
     // blink = span => {
     //     setInterval(function () {
@@ -21,6 +25,11 @@ class Inputs extends Component {
     //     }, 1000)
     // }
     render() {
+        let reply =this.props.reply
+        if(typeof(reply)=='string'&&reply.length){
+           reply= reply.split('\n').join('<br />')
+        }
+        
         return (
             <div className='inputs'>
                 <span className='user'>Zertu@<a href="http://zertu.space">zertu.space</a>
@@ -30,6 +39,7 @@ class Inputs extends Component {
                         .props
                         .keyinput
                         .join('')}</span>
+            <i dangerouslySetInnerHTML={{__html:reply}}></i>
             </div>
         )
     }
