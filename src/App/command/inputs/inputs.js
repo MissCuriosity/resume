@@ -8,10 +8,15 @@ class Inputs extends Component {
     constructor(props){
         super(props)
     }
+    handlekeyup=e=>{
+        console.log(e)
+    }
     render() {
         return (
             <div className='inputs'>
-                <span>{this.props.keyinput.finalinput}</span>
+                <span className='user'>Zertu@<a href="http://zertu.space">zertu.space</a>
+                </span>:~ $ &nbsp;
+                <span>{this.props.keyinput.join('')}</span>
             </div>
         )
     }
