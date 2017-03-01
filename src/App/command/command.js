@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import command from './command.scss'
+
 class Command extends Component {
     render() {
         return (
-            <div>
-                Zertu@<a href="zertu.space">zertu.space</a>          :~ $
+            <div className='command'>
+               <span>Zertu@<a href="http://zertu.space">zertu.space</a> </span>:~ $
             </div>
         );
     }
