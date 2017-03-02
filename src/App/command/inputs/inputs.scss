@@ -48,6 +48,17 @@
         white-space: pre;
         display: block;
         height: 100%;
+        a {
+            color: #FFCC00;
+            text-decoration: none;
+            &:hover,
+             :visited,
+             :active,
+             :link {
+                color: #FFCC00;
+                text-decoration: none;
+            }
+        }
         code {
             font-family: LucidaSans;
             color: mediumorchid;
