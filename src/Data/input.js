@@ -5,8 +5,9 @@ import handleInput from '../Handler/Handler'
 
 class keyinput {
     constructor() {
+        pre(this.lists,this.inputkeys)
         window.addEventListener('keydown', e => {
-            if(e.code=='Space'){
+            if (e.code == 'Space') {
                 this
                     .lists[this.i]
                     .inputkeys
@@ -68,8 +69,12 @@ class keyinput {
                     this.i++;
                     this
                         .lists
-                        .push({key: this.i, inputkeys: [], path: this.lists[this.i-1].path})
-                }else{                 
+                        .push({
+                            key: this.i,
+                            inputkeys: [],
+                            path: this.lists[this.i - 1].path
+                        })
+                } else {
                     this.i++;
                     this
                         .lists
@@ -88,5 +93,9 @@ class keyinput {
             path: '~'
         }
     ]
+}
+
+const pre = (lists,inputkeys) => {
+
 }
 export default new keyinput()
