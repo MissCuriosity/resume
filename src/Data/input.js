@@ -106,10 +106,10 @@ class keyinput {
             path: '~'
         }
     ]
-     @action.bound
-     pre(lists, inputkeys){
+    //  @action.bound
+    //  pre(lists, inputkeys){
          
-     }
+    //  }
 }
 
 const pre = (lists, inputkeys) => {
