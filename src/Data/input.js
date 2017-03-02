@@ -5,7 +5,6 @@ import handleInput from '../Handler/Handler'
 
 class keyinput {
     constructor() {
-        pre(this.lists,this.inputkeys)
         window.addEventListener('keydown', e => {
             if (e.code == 'Space') {
                 this
@@ -15,7 +14,9 @@ class keyinput {
                 return
             }
             let banarr = [
+                9,
                 19,
+                27,
                 45,
                 36,
                 33,
@@ -28,7 +29,19 @@ class keyinput {
                 18,
                 91,
                 37,
-                39
+                39,
+                123,
+                122,
+                121,
+                120,
+                119,
+                118,
+                117,
+                116,
+                115,
+                114,
+                113,
+                112
             ]
             for (let i = 0; i < banarr.length; i++) {
                 if (e.keyCode == banarr[i]) {
@@ -93,9 +106,17 @@ class keyinput {
             path: '~'
         }
     ]
+     @action.bound
+     pre(lists, inputkeys){
+         
+     }
 }
 
-const pre = (lists,inputkeys) => {
-
+const pre = (lists, inputkeys) => {
+    let i = 0
+    while (i < 'help'.length) {
+        inputkeys.push('help'.charAt(i))
+        i++
+    }
 }
 export default new keyinput()

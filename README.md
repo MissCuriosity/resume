@@ -22,3 +22,6 @@ npm run dev
 ```js
 npm run build
 ```
+
+#预览
+![image](http://p1.bpimg.com/4851/e623fbe7d1d8cfe1.png)
