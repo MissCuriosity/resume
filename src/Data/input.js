@@ -1,4 +1,4 @@
-import {computed, observable} from 'mobx'
+import {action, computed, observable} from 'mobx'
 
 import Inputs from '../App/command/inputs/inputs';
 import handleInput from '../Handler/Handler'
@@ -106,17 +106,18 @@ class keyinput {
             path: '~'
         }
     ]
-    //  @action.bound
-    //  pre(lists, inputkeys){
-         
-    //  }
-}
-
-const pre = (lists, inputkeys) => {
-    let i = 0
-    while (i < 'help'.length) {
-        inputkeys.push('help'.charAt(i))
-        i++
+    @action.bound
+    pre(input) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                this
+                    .lists[0]
+                    .inputkeys
+                    .push(input)
+                    resolve()
+            }, 200)
+        })
     }
 }
+
 export default new keyinput()
