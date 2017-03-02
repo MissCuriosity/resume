@@ -9,9 +9,6 @@ class Inputs extends Component {
     constructor(props) {
         super(props)
     }
-    handleChange(e){
-        console.log(e)
-    }
     // blink = span => {
     //     setInterval(function () {
     //         switch (span.className) {

@@ -1,12 +1,16 @@
 import tree from './tree'
 
 const handleInput = (input, path) => {
-    if (input.indexOf('cd ') >= 0) {
+    if (input.indexOf('cd') >= 0) {
         let targetpath = input
-            .split('cd ')[1]
+            .split('cd')[1]
             .trim()
+
+        console.log(findPath(targetpath))
         switch (targetpath) {
             case 'projects':
+                return [targetpath]
+            case '~':
                 return [targetpath]
             default:
                 return '-bash: cd: ' + targetpath + ': No such file or directory'
@@ -26,13 +30,11 @@ Commands are(case insensitive):
             case 'ls':
                 {
                     let temp = []
-                    for (let key in tree) {
-                        if (key == path) {
-                            for (let k in tree[key]) {
-                                temp.push(k)
-                            }
-                        }
+                    console.log( findPath(path))
+                   for (let i in findPath(path)){
+                        temp.push(i)
                     }
+                    console.log(temp)
                     temp[0] = '<p>' + temp[0]
                     temp[temp.length - 1] = temp[temp.length - 1] + '</p>'
                     return temp.join('      ')
@@ -46,7 +48,7 @@ Commands are(case insensitive):
 |  |——Github
                 `
             case 'profile':
-                let s = `{
+                return `{
     "Name": "ZhangZeQing",
     "Environment": "Win32/Vscode/Git",
     "Skills": {
@@ -67,12 +69,32 @@ Commands are(case insensitive):
         "React"
     ],
     "Languages": [
-        "Chinese", "English"
+        "Chinese", 
+        "English"
     ]
 }                `
-                return s
+            case 'open':{
+                
+            }
+            case '':
+            return ''
             default:
                 return '-bash: ' + input + ': command not found'
+        }
+    }
+}
+
+const findPath=(path,currentTree=tree)=>{
+    if(currentTree[path]!==undefined){
+        return currentTree[path]
+    }else{
+        for(let key in currentTree){
+            console.log(key)
+            if(key==path){
+                return currentTree[key]
+            }else{
+                return findPath(path,currentTree[key])
+            }
         }
     }
 }

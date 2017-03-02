@@ -6,6 +6,13 @@ import handleInput from '../Handler/Handler'
 class keyinput {
     constructor() {
         window.addEventListener('keydown', e => {
+            if(e.code=='Space'){
+                this
+                    .lists[this.i]
+                    .inputkeys
+                    .push(e.key)
+                return
+            }
             let banarr = [
                 19,
                 45,
