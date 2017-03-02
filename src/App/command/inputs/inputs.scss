@@ -41,14 +41,20 @@
             bottom: 0;
         }
     }
-    i{
+    i {
         font-family: Courier, monospace;
         font-size: 16px;
         white-space: pre;
         display: block;
         height: 100%;
-        code{
-            color: mediumpurple;
+        code {
+            font-family: LucidaSans;
+            color: mediumorchid;
+            font-size: 16px;
+        }
+        p {
+            font-family: LucidaSans;
+            color: #50beff;
             font-size: 16px;
         }
     }

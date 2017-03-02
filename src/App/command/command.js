@@ -9,7 +9,7 @@ import {observer} from "mobx-react"
 class Command extends Component {
     render() {
         const lists = keyinput.lists.map(item=>
-            <Inputs key={item.key} keyinput={item.inputkeys} reply={item.reply}/>               
+            <Inputs key={item.key} path={item.path} keyinput={item.inputkeys} reply={item.reply}/>               
         )
         return (
             <div className='command'>

@@ -55,11 +55,12 @@ class keyinput {
                     .inputkeys
                     .push(e.key)
             } else {
-                this.lists[this.i].reply = handleInput(this.lists[this.i].inputkeys.join('').trim())
+                this.lists[this.i].reply = handleInput(this.lists[this.i].inputkeys.join('').trim(),this.lists[this.i].path)
+                
                 this.i++;
                 this
                     .lists
-                    .push({key: this.i, inputkeys: []})
+                    .push({key: this.i, inputkeys: [],path:'~'})
             }
         }, false)
     }
@@ -69,7 +70,8 @@ class keyinput {
         {
             key: this.i,
             inputkeys: this.inputkeys,
-            reply: ''
+            reply: '',
+            path :'~'
         }
     ]
 }

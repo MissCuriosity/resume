@@ -33,7 +33,7 @@ class Inputs extends Component {
         return (
             <div className='inputs'>
                 <span className='user'>Zertu@<a href="http://zertu.space">zertu.space</a>
-                </span>:~ $ &nbsp;
+                </span>:{this.props.path} $ &nbsp;
                 <span
                     className='command'>{this
                         .props

@@ -1,4 +1,6 @@
-const handleInput = input => {
+import tree from './tree'
+
+const handleInput = (input, path) => {
     if (input.indexOf('cd') >= 0) {
         return 'not ready yet'
         // do something
@@ -16,7 +18,17 @@ Commands are(case insensitive):
 `
             case 'ls':
                 {
-                    return 'not ready yet'
+                    let temp=[]
+                    for (let key in tree) {
+                        if (key == path) {
+                           for (let k in tree[key]){
+                               temp.push(k)
+                           }
+                        }
+                    }
+                 temp[0]='<p>'+temp[0]
+                 temp[temp.length-1]=temp[temp.length-1]+'</p>'
+                    return temp.join('      ')
                 }
             case 'tree':
                 return `~
@@ -53,7 +65,7 @@ Commands are(case insensitive):
 }                `
                 return s
             default:
-                return 'bash: ' + input + ': command not found'
+                return '-bash: ' + input + ': command not found'
         }
     }
 }
