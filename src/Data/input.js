@@ -68,7 +68,7 @@ class keyinput {
                     this.i++;
                     this
                         .lists
-                        .push({key: this.i, inputkeys: [], path: '~'})
+                        .push({key: this.i, inputkeys: [], path: this.lists[this.i-1].path})
                 }else{                 
                     this.i++;
                     this
