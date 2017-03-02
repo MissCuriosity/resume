@@ -55,12 +55,19 @@ class keyinput {
                     .inputkeys
                     .push(e.key)
             } else {
-                this.lists[this.i].reply = handleInput(this.lists[this.i].inputkeys.join('').trim(),this.lists[this.i].path)
-                
-                this.i++;
-                this
-                    .lists
-                    .push({key: this.i, inputkeys: [],path:'~'})
+                let reply = handleInput(this.lists[this.i].inputkeys.join('').trim(), this.lists[this.i].path)
+                if (typeof(reply) === 'string') {
+                    this.lists[this.i].reply = reply
+                    this.i++;
+                    this
+                        .lists
+                        .push({key: this.i, inputkeys: [], path: '~'})
+                }else{                 
+                    this.i++;
+                    this
+                        .lists
+                        .push({key: this.i, inputkeys: [], path: reply[0]})
+                }
             }
         }, false)
     }
@@ -71,7 +78,7 @@ class keyinput {
             key: this.i,
             inputkeys: this.inputkeys,
             reply: '',
-            path :'~'
+            path: '~'
         }
     ]
 }

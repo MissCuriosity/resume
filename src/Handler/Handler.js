@@ -1,9 +1,16 @@
 import tree from './tree'
 
 const handleInput = (input, path) => {
-    if (input.indexOf('cd') >= 0) {
-        return 'not ready yet'
-        // do something
+    if (input.indexOf('cd ') >= 0) {
+        let targetpath = input
+            .split('cd ')[1]
+            .trim()
+        switch (targetpath) {
+            case 'projects':
+                return [targetpath]
+            default:
+                return '-bash: cd: ' + targetpath + ': No such file or directory'
+        }
     } else {
         switch (input) {
             case 'help':
@@ -18,16 +25,16 @@ Commands are(case insensitive):
 `
             case 'ls':
                 {
-                    let temp=[]
+                    let temp = []
                     for (let key in tree) {
                         if (key == path) {
-                           for (let k in tree[key]){
-                               temp.push(k)
-                           }
+                            for (let k in tree[key]) {
+                                temp.push(k)
+                            }
                         }
                     }
-                 temp[0]='<p>'+temp[0]
-                 temp[temp.length-1]=temp[temp.length-1]+'</p>'
+                    temp[0] = '<p>' + temp[0]
+                    temp[temp.length - 1] = temp[temp.length - 1] + '</p>'
                     return temp.join('      ')
                 }
             case 'tree':
